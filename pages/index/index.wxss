@@ -1,0 +1,53 @@
+/**index.wxss**/
+.slides {
+  height: 380rpx;
+}
+
+.slides .img_item image {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+.grids {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1rpx solid #ebebeb;
+  border-left: 1rpx solid #ebebeb;
+}
+
+.grids .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 33.33%;
+  height: 250rpx;
+  border-right: 1rpx solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  /* 左侧没有边框 上面也没有边框，可以给父盒子整体加左边框和上边框 */
+  box-sizing: border-box;
+  padding: 10px 0;
+  background-color: #ffffff;
+}
+
+.grids .item image {
+  width: 60%;
+  height: 75px;
+  vertical-align: bottom;
+}
+
+.grids .item text {
+  font-size: 14px;
+  color: #242424;
+}
+
+view.deco {
+  width: 100%;
+  background-color: red;
+}
+
+.deco view {
+  height: 10px;
+  background-color: #f0f0f0;
+}

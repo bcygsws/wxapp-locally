@@ -3,49 +3,54 @@
   autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}">
     <swiper-item class="img_item">
-      <image src="{{item.url}}" mode="aspectFill"/>
+      <image src="{{item.url}}" mode="aspectFill" />
     </swiper-item>
   </block>
 </swiper>
 <view class="grids">
   <view class="item">
-    <image src="../../assets/icons/grid-01.png"/>
+    <image src="../../assets/icons/grid-01.png" />
     <text>美食</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-02.png"/>
+    <image src="../../assets/icons/grid-02.png" />
     <text>洗浴治疗</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-03.png"/>
+    <image src="../../assets/icons/grid-03.png" />
     <text>结婚啦</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-04.png"/>
+    <image src="../../assets/icons/grid-04.png" />
     <text>KTV</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-05.png"/>
+    <image src="../../assets/icons/grid-05.png" />
     <text>找工作</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-06.png"/>
+    <image src="../../assets/icons/grid-06.png" />
     <text>辅导班</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-07.png"/>
+    <image src="../../assets/icons/grid-07.png" />
     <text>汽车保养</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-08.png"/>
+    <image src="../../assets/icons/grid-08.png" />
     <text>租房</text>
   </view>
   <view class="item">
-    <image src="../../assets/icons/grid-09.png"/>
+    <image src="../../assets/icons/grid-09.png" />
     <text>装修</text>
   </view>
 
 </view>
 <view class="deco">
-  <view>fdsafasdfasd</view>
+  <view></view>
+</view>
+<!-- 链接：商家推荐和交友论坛 -->
+<view class="links">
+  <image src="../../assets/images/link-01.png" mode="aspectFill" />
+  <image src="../../assets/images/link-2.png" mode="aspectFill" />
 </view>

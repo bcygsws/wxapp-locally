@@ -1,4 +1,6 @@
 //app.js
+// 首页轮播图:数据接口地址:https://locally.uieee.com/slides
+// 首页九宫格:数据接口地址:https://locally.uieee.com/categories
 App({
   onLaunch: function () {
     // 展示本地存储能力

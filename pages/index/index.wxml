@@ -1,49 +1,20 @@
 <!--index.wxml-->
 <swiper class="slides" indicator-dots="true" indicator-color="rgba(0,0,0,.2)" indicator-active-color="#e92321"
   autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{slides}}" wx:key="id">
     <swiper-item class="img_item">
-      <image src="{{item.url}}" mode="aspectFill" />
+      <image src="{{item.image}}" mode="aspectFill" />
     </swiper-item>
   </block>
 </swiper>
 <view class="grids">
-  <view class="item">
-    <image src="../../assets/icons/grid-01.png" />
-    <text>美食</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-02.png" />
-    <text>洗浴治疗</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-03.png" />
-    <text>结婚啦</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-04.png" />
-    <text>KTV</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-05.png" />
-    <text>找工作</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-06.png" />
-    <text>辅导班</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-07.png" />
-    <text>汽车保养</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-08.png" />
-    <text>租房</text>
-  </view>
-  <view class="item">
-    <image src="../../assets/icons/grid-09.png" />
-    <text>装修</text>
-  </view>
+  <block wx:for="{{categories}}" wx:key="id">
+    <view class="item">
+      <image src="{{item.icon}}" />
+      <text>{{item.name}}</text>
+    </view>
+  </block>
+
 
 </view>
 <view class="deco">

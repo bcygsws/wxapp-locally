@@ -1,3 +1,5 @@
+// 此处不能把module.exports改成exports,原因是不能对exports直接赋值，直接赋值会割裂module.exports和
+// exports之间的联系
 module.exports = (url, data) => {
     return new Promise((resolve, reject) => {
         wx.request({

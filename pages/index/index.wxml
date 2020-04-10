@@ -1,35 +1,34 @@
 <!--index.wxml-->
-<swiper class="slides" indicator-dots="true" indicator-color="rgba(0,0,0,.2)" indicator-active-color="#e92321"
-  autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}">
-  <block wx:for="{{slides}}" wx:key="id">
-    <swiper-item class="img_item">
-      <!-- 在image外增加一个navigator标签，会导致image标签中的图片没有高度了。原因是：100%宽高度继承中的父子元素依赖的问题，
+<swiper class="slides" indicator-dots="true" indicator-color="rgba(0,0,0,.2)" indicator-active-color="#e92321" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}">
+	<block wx:for="{{slides}}" wx:key="id">
+		<swiper-item class="img_item">
+			<!-- 在image外增加一个navigator标签，会导致image标签中的图片没有高度了。原因是：100%宽高度继承中的父子元素依赖的问题，
       第二张图中image外添加了navigator这一层，导致高度100%不能直接继承了，解决办法：增设navigator层的宽高为100% -->
-      <navigator url="{{item.link}}" wx:if="{{item.link}}">
-        <image src="{{item.image}}" mode="aspectFill" />
-      </navigator>
-      <!-- item.link为空时，布尔值为false.数据接口中第一张图的link属性为空，执行了此分支 -->
-      <image wx:else src="{{item.image}}" mode="aspectFill"></image>
-    </swiper-item>
-  </block>
+			<navigator url="{{item.link}}" wx:if="{{item.link}}">
+				<image src="{{item.image}}" mode="aspectFill" />
+			</navigator>
+			<!-- item.link为空时，布尔值为false.数据接口中第一张图的link属性为空，执行了此分支 -->
+			<image wx:else src="{{item.image}}" mode="aspectFill"></image>
+		</swiper-item>
+	</block>
 </swiper>
 <view class="grids">
-  <block wx:for="{{categories}}" wx:key="id">
-    <!-- 注意：navigator中url属性值使用的是绝对路径。
+	<block wx:for="{{categories}}" wx:key="id">
+		<!-- 注意：navigator中url属性值使用的是绝对路径。
     1.发现问题：点击按钮没有跳转到/pages/message/message
     2.原因：出在路径上/pages/message/message，该路径在tabbar中消息跳转的路径。tabbar属于主页面，主页面是不允许被导航的
     -->
-    <navigator class="item" url="/pages/list/list?cat={{item.id}}">
-      <image src="{{item.icon}}" />
-      <text>{{item.name}}</text>
-    </navigator>
-  </block>
+		<navigator class="item" url="/pages/list/list?cat={{item.id}}">
+			<image src="{{item.icon}}" />
+			<text>{{item.name}}</text>
+		</navigator>
+	</block>
 </view>
 <view class="deco">
-  <view></view>
+	<view></view>
 </view>
 <!-- 链接：商家推荐和交友论坛 -->
 <view class="links">
-  <image src="../../assets/images/link-01.png" mode="aspectFill" />
-  <image src="../../assets/images/link-2.png" mode="aspectFill" />
+	<image src="../../assets/images/link-01.png" mode="aspectFill" />
+	<image src="../../assets/images/link-2.png" mode="aspectFill" />
 </view>

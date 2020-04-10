@@ -42,8 +42,24 @@ Page({
       });
       wx.setNavigationBarTitle({
         title: res.data.name
-      })
+      });
+      // 从时间顺序来讲，先加载完分类后，拿到分类，然后再加载该类对应的商铺信息
+      /**
+       * 说明：
+       * 1.第二个参数：是向数据接口传递的参数，_page表示页数，_limit表示该页的最多数据条数
+       * 2.直接这样书写，还是出现了函数嵌套，这样就失去了promise的价值了
+       */
+      // fetch(`categories/${options.cat}/shops`, { _page: 1, _limit: 10 }).then(res => {
+      //   console.log(res);
+      // });
+      return fetch(`categories/${options.cat}/shops`, { _page: 1, _limit: 10 });
+    }).then(res => {
+      console.log(res);
+      this.setData({
+        shops: res.data
+      });
     });
+
   },
 
   /**

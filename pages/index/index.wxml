@@ -18,7 +18,7 @@
     1.发现问题：点击按钮没有跳转到/pages/message/message
     2.原因：出在路径上/pages/message/message，该路径在tabbar中消息跳转的路径。tabbar属于主页面，主页面是不允许被导航的
     -->
-		<navigator class="item" url="/pages/list/list?cat={{item.id}}">
+		<navigator class="item" url="/pages/list/list?cat_id={{item.id}}">
 			<image src="{{item.icon}}" />
 			<text>{{item.name}}</text>
 		</navigator>

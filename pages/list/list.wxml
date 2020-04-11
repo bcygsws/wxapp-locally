@@ -17,3 +17,6 @@
         </view>
     </view>
 </view>
+<!-- 根据hasMore(是否加载完成？)的值来设定显示 -->
+<view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+<view wx:else class="loadmore">客官没有更多了...</view>

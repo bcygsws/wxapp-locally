@@ -1,41 +1,17 @@
 //app.js
 // 首页轮播图:数据接口地址:https://locally.uieee.com/slides
 // 首页九宫格:数据接口地址:https://locally.uieee.com/categories
+
+// 九宫格中的每个类:例如美食：id=1 https://locally.uieee.com/categories/1/shops 得到美食类下所有店铺数据
+
+// 为数据接口设置请求参数来控制所有数据的分页(_page)显示和每页存放的数据条数(_limit)
+// https://locally.uieee.com/categories/1/shops?_page=1&_limit=20 --->衍生出数据加载、上拉加载更多数据、下拉刷新数据(重载onLoad触发时的原始数据)
+
+// 搜索 https://locally.uieee.com/categories/1/shops?_page=1&_limit=2&q=鸡排 表示在第一页中加载最多两条(没有含鸡排的就0条)店铺信息含鸡排的数据
+
+
+
+
+
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
-  },
-  globalData: {
-    userInfo: null
-  }
-})
+});

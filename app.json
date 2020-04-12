@@ -11,7 +11,7 @@
     "navigationBarTitleText": "本地宝",
     "backgroundColor": "#bcc0c9",
     "backgroundTextStyle": "light",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#999",

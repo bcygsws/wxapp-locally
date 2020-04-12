@@ -73,7 +73,12 @@ Page({
     // console.log(1);
     // 拿到导航过来时传递的cat_id参数:是每个类别的id值，options是一个对象
     // console.log(options);
-    fetch(`categories/${options.cat_id}`).then(res => {
+    /**
+     * return是在下拉刷新时加的，目的是让异步请求加载完成后，得到一个promise实例，
+     * promise实例.then(()=>{wx.stopPullDownRefresh();});
+     * 
+     */
+    return fetch(`categories/${options.cat_id}`).then(res => {
       console.log(res);
       // 将数据挂载的原因是，方便onReady中取用
       this.setData({
@@ -122,9 +127,27 @@ Page({
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
+   * 先将app.json文件中window下，enablePullDownRefresh属性设置为true,小程序【下拉】就启用了
+   * 实现下拉刷新的时候，重新加载数据(回到应用初次打开时的转态，onLoad时的状态)
+   * 
    */
   onPullDownRefresh: function () {
+    // 测试代码
+    console.log(123);
+    // 重新加在数据之前，先把data中的数据设定成初始值,其中pageSize设定为20，是个不变值。category:{}是navigator标签中
+    // 传递的参数，进入list页面后，形参cat_id（实参id）是固定值，不用重置
+    this.setData({ shops: [], pageIndex: 0, hasMore: true });
+    /* 
+    bug出现：下拉刷新默认有个3s的延迟。会出现数据重新加载完成了，下拉刷新还存在。我们需要的是，数据重载完成了，立马关闭
+    下拉刷新，借助一个api: stopPullDownRefresh()
+    解决：把onLoad函数中异步请求数据的代码作为一个promise实例返回(只有异步请求数据完成了，才会返回promise实例)
 
+    TODOS:实现了数据重载完成，立即停止下拉刷新。但是会报一个错误：this.loadMore.then is not a function;
+    at pages/list/list page onPullDownRefresh function*/
+    const promise = this.loadMore();
+    promise.then(() =>
+      wx.stopPullDownRefresh()
+    );
   },
 
   /**

@@ -1,0 +1,11 @@
+module.exports = {
+  //类似过滤器
+  size: function(input) {
+    return input.replace('w.h', '100.100');
+  },
+  getArr: function(arr) { //控制详情页轮播图只显示五张
+    return arr.filter(function(item, index, array) {
+      return array.length < 5 ? (index < array.length) : (index < 5);
+    });
+  }
+}

@@ -4,7 +4,7 @@
     <icon type="search" size="15"></icon>
 </view>
 <view class="cells">
-    <view class="item" wx:for="{{shops}}" wx:key="id">
+    <navigator class="item" wx:for="{{shops}}" wx:key="id" url="/pages/detail/detail?item={{item.id}}">
         <image src="{{item.images[0]}}" mode="aspectFill" />
         <view class="sides">
             <view class="left">
@@ -15,7 +15,7 @@
             </view>
             <view class="right">{{item.score}}</view>
         </view>
-    </view>
+    </navigator>
 </view>
 <!-- 根据hasMore(是否加载完成？)的值来设定显示 -->
 <view wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>

@@ -1,0 +1,91 @@
+/* pages/detail/detail.wxss */
+page {
+    background-color: #eeeeee;
+}
+
+.swipe {
+    height: 380rpx;
+}
+
+.swipe swiper-item image {
+    vertical-align: bottom;
+    width: 100%;
+    height: 100%;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20rpx;
+    font-size: 12px;
+    min-height: 100px;
+    color: #555555;
+    position: relative;
+}
+
+.heading .name {
+    font-size: 15px;
+    color: #444444;
+}
+
+.heading .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading .score {
+    background-color: #ee523d;
+    border-radius: 30rpx;
+    padding: 0 10rpx;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 20px;
+}
+
+/* 用户评价样式 */
+.comments {
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding: 20rpx;
+
+}
+
+.comments .item {
+    display: flex;
+    flex-direction: column;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #eee;
+    color: #555555;
+    font-size: 24rpx;
+    position: relative;
+}
+
+.comments .item .name {
+    font-size: 40rpx;
+    margin-top: 20rpx;
+    color: #444444;
+}
+
+.comments .item .date {
+    align-self: flex-end;
+    margin: -40rpx 0 20rpx;
+}
+
+.comments .item .rate {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    color: red;
+}
+.comments .item .img{
+    display: flex;
+    margin-top: 20rpx;
+}
+.comments .item image{
+    vertical-align: bottom;
+    width: 150rpx;
+    height: 150rpx;
+    margin-right: 20rpx;
+}

@@ -1,0 +1,58 @@
+<!--pages/detail/detail.wxml-->
+<!-- 轮播图 -->
+<swiper class="swipe" mode="aspectFill" indicator-dots="true" indicator-color="#eee" indicator-active-color="green"
+    autoplay="true" duration="300" interval="3000" circular="true">
+    <blcok wx:for="{{shop.images}}" wx:key="id">
+        <swiper-item>
+            <!-- 实现功能：点击轮播图中图片，图片有预览功能，左滑 右滑查看,使用API wx.previewImage({current:当前图片地址,urls:图片地址列表}) 
+            为了得到当前点击图片的url,需要将当前图片的地址传给bindtap的事件处理函数，使用 data-系列 传值
+            -->
+
+            <image src="{{item}}" bindtap="previewHandle" data-src="{{item}}"/>
+        </swiper-item>
+    </blcok>
+    <!-- 详细信息 -->
+</swiper>
+<view class="heading">
+    <view class="header">
+        <text class="name">{{shop.name}}</text>
+        <!-- 意为没有评分就不显示，评分椭圆框 -->
+        <text class="score" wx:if="{{shop.score}}">{{shop.score}}</text>
+    </view>
+    <text class="phone">电话：{{shop.phone}}</text>
+    <text class="address">地址：{{shop.address}}</text>
+    <text class="hours">营业时间：{{shop.businessHours}}</text>
+
+</view>
+<!-- 说明 -->
+<view class="introduction" wx:if="{{shop.introduction}}">
+    <text>{{shop.introduction}}</text>
+</view>
+<!-- 店铺用户评价 -->
+<view class="comments" wx:if="{{shop.comments.length}}">
+    <view class="item" wx:for="{{shop.comments}}" wx:key="*this">
+        <text class="name">{{item.name}}</text>
+        <text class="date">{{item.date}}</text>
+        <text class="rate">{{item.rating}}</text>
+        <text class="content">{{item.content}}</text>
+        <view class="img">
+            <!-- <image src="{{item}}" /> -->
+            <!-- 由于数据接口的问题，需要使用wxs对图片进行一个处理,原链接加载图片失败，发现把
+            w.h替换成具体数字，图片可以完美加载 例如：w.h 替换成 100.100
+            http://p0.meituan.net/w.h/shaitu/4ffbaec3f82fe3b4240aedb22fee22e5267105.jpg
+            http://p0.meituan.net/100.100/shaitu/4ffbaec3f82fe3b4240aedb22fee22e5267105.jpg
+             -->
+            <image src="{{util.size(item)}}" wx:for="{{item.images}}" wx:key="*this" />
+        </view>
+    </view>
+</view>
+<!-- wxs页面内部脚-类比script
+    注意：虽然小程序对ES6支持很好，但是这里面不支持ES6的新特性，必须用ES5语法书写 -->
+<wxs module="util">
+    module.exports = {
+    //类似过滤器
+    size: function(input) {
+    return input.replace('w.h', '100.100');
+    }
+    }
+</wxs>

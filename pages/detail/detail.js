@@ -14,7 +14,7 @@ Page({
   filterHandle: function (arr) {
     return arr.filter((item, index, array) => {
       return array.length > 5 ? (index < 5) : index < arr.length;
-    })
+    });
   },
   // 点击轮播图中任意一张图片，开启【图片预览】
   previewHandle: function (e) {
